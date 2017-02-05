@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="TIE.Default" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>TIE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Assets/Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="Assets/Jquery/jquery-3.1.1.js"></script>
+    <script src="Assets/Bootstrap/js/bootstrap.js"></script>
+    
+    <link href="Assets/css/main.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <%--BARRA DE NAVEGACION--%>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">ActivitiesTIE</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="Register.aspx"><span class="glyphicon glyphicon-user" style="margin-right: 5px"></span>Registrate</a></li>
+                            <li><a href="Login.aspx"><span class="glyphicon glyphicon-log-in" style="margin-right: 5px"></span>Iniciar sesion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

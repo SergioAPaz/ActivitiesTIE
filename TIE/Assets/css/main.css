@@ -1,0 +1,10 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+   font-family: 'Montserrat', sans-serif;
+   background-color:#e8e8e8;
+}
+
+.navbar{
+    border-radius:0px;
+}
