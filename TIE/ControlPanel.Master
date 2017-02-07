@@ -11,10 +11,13 @@
     <script src="Assets/Jquery/jquery-3.1.1.js"></script>
     <script src="Assets/Bootstrap/js/bootstrap.js"></script>
     <link href="Assets/css/ControlPanel.css" rel="stylesheet" />
+
+
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="mCustomScrollbar" data-mcs-theme="dark">
     <form id="form1" runat="server">
         <div>
 

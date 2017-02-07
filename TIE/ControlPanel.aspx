@@ -4,16 +4,19 @@
     <link href="Assets/materialize/css/materialize.css" rel="stylesheet" />
     <script src="Assets/materialize/js/materialize.js"></script>
     <link href="Assets/css/ControlPanel.css" rel="stylesheet" />
-    <script src="Assets/js/ControlPanel.js"></script>
+    <script src="Assets/Jquery/jquery-3.1.1.js"></script>
+        
+    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <div class="container-fluid">
+    <div class="container-fluid scroll">
 
 
         <div class="col-xs-12 col-sm-3">
-            kdlfsdmkldfm
+      
         </div>
 
         <div class="col-xs-12 col-sm-12">

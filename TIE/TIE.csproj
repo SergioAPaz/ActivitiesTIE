@@ -95,6 +95,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\css\ControlPanel.css" />
+    <Content Include="Assets\css\scroll\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Assets\Jquery\scroll\jquery.mCustomScrollbar.concat.min.js" />
     <Content Include="Assets\js\ControlPanel.js" />
     <Content Include="Assets\materialize\css\materialize.css" />
     <Content Include="Assets\materialize\js\materialize.js" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -10,6 +11,8 @@ namespace TIE
 {
     public partial class MyProfile : System.Web.UI.Page
     {
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             String sql = "SELECT * FROM [TIE].[dbo].[users] WHERE  [User] = '" + Session["user"] + "' ";
@@ -22,16 +25,71 @@ namespace TIE
             SqlDataReader nwReader = comm.ExecuteReader();
             while (nwReader.Read())
             {
-                txtName.Text = (String)nwReader["Name"];
-                txtUser.Text = (String)nwReader["User"];
-                txtMail.Text = (String)nwReader["Mail"];
+                lblName.Text = (String)nwReader["Name"];
+                lblUser.Text = (String)nwReader["User"];
+                lblMail.Text = (String)nwReader["Mail"];
             }
             nwReader.Close();
             conn.Close();
         }
-        public void SelectDates(object sender, EventArgs e)
+        public void btn_edit(object sender, EventArgs e)
         {
-           
+            lblName.Visible = false;
+            lblUser.Visible = false;
+            lblMail.Visible = false;
+            txtName.Text = lblName.Text;
+            txtMail.Text = lblMail.Text;
+            txtMail.Visible = true;
+            txtName.Visible = true;
+            btnEditCancel.Visible = true;
+            btnEdit.Visible = false;
+            btnSave.Visible = true;
         }
+        public void btn_EditCancel(object sender, EventArgs e)
+        {
+            txtName.Visible = false;
+            txtMail.Visible = false;
+            lblName.Visible = true;
+            lblMail.Visible = true;
+            btnEditCancel.Visible = false;
+            btnEdit.Visible = true;
+            btnSave.Visible = false;
+        }
+        public void btn_Save(object sender, EventArgs e)
+        {
+            if (txtMail.Text!=null & txtName.Text!=null)
+            {
+                var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["TIE.Properties.Settings.DB_String"];
+                using (SqlConnection dbconnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+                {
+                    try
+                    {
+                        String User = lblUser.Text;
+                        dbconnection.Open();
+                        SqlCommand actualizar = new SqlCommand("UPDATE dbo.users SET Name='" + txtName.Text + "' and Mail='" + txtMail.Text + "' WHERE [User]='" + User + "'  ", dbconnection);
+                        actualizar.ExecuteNonQuery();
+                        ErrorEditUser.Visible = false;
+
+                        FALTA QUE LLENE LOS LBL CON LA NUEVA INFORMACION Y QUE APARESCAN LOS BTN QUE DEBEN.
+                    }
+                    catch (SqlException ex)
+                    {
+                        dbconnection.Close();
+                        dbconnection.Dispose();
+                    }
+                }
+            }
+            else
+            {
+                ErrorEditUser.Visible = true;
+            }
+            
+           
+
+
+
+        }
+
+
     }
 }
