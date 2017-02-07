@@ -35,7 +35,7 @@ namespace TIE
         public void btn_edit(object sender, EventArgs e)
         {
             lblName.Visible = false;
-            lblUser.Visible = false;
+         
             lblMail.Visible = false;
             txtName.Text = lblName.Text;
             txtMail.Text = lblMail.Text;
@@ -66,11 +66,22 @@ namespace TIE
                     {
                         String User = lblUser.Text;
                         dbconnection.Open();
-                        SqlCommand actualizar = new SqlCommand("UPDATE dbo.users SET Name='" + txtName.Text + "' and Mail='" + txtMail.Text + "' WHERE [User]='" + User + "'  ", dbconnection);
+                        SqlCommand actualizar = new SqlCommand("UPDATE [TIE].[dbo].[users] SET Name='" + txtName.Text + "', Mail='" + txtMail.Text + "' WHERE [User]='" + User + "'  ", dbconnection);
                         actualizar.ExecuteNonQuery();
                         ErrorEditUser.Visible = false;
 
-                        FALTA QUE LLENE LOS LBL CON LA NUEVA INFORMACION Y QUE APARESCAN LOS BTN QUE DEBEN.
+                        lblMail.Text = txtMail.Text;
+                        lblName.Text = txtName.Text;
+                        txtMail.Visible = false;
+                        txtName.Visible = false;
+                        lblMail.Visible = true;
+                        lblName.Visible = true;
+                        btnEditCancel.Visible = false;
+                        btnEdit.Visible = true;
+                        btnSave.Visible = false;
+                        alertSucceseful.Visible = true;
+
+
                     }
                     catch (SqlException ex)
                     {

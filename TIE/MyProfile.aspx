@@ -12,10 +12,16 @@
                 <div class="panel-body">
                     <div class="account-wall">
                         <img class="profile-img img-thumbnail" style="width: 200px; height: auto" src="Images/profile_default.png" />
-
+                        <br />
+                        <br />
                         <asp:Panel ID="ErrorEditUser" runat="server" Visible="false">
                             <div class="alert alert-warning">
-                                <strong>Error!</strong>Favor de llenar todos los espacios.
+                                <strong>Error!</strong> Favor de llenar todos los espacios.
+                            </div>
+                        </asp:Panel>
+                          <asp:Panel ID="alertSucceseful" runat="server" Visible="false">
+                            <div class="alert alert-success">
+                                <strong></strong>Datos guardados con exito.
                             </div>
                         </asp:Panel>
 
